@@ -1,0 +1,18 @@
+<h2>Users</h2>
+
+<ul *ngIf="persons">
+  <li *ngFor="let person of persons" (click)="selectPerson(person)">
+      <span>{{person.userId}} </span> <span> {{person.firstName}}</span> <span> deze user is {{person.status}}</span>
+  </li>
+</ul>
+
+<div *ngIf="selectedPerson">
+  <h2>{{selectedPerson.firstName}} details!</h2>
+  <div><label>id: </label>{{selectedPerson.userId}}</div>
+  <div>
+    <label>status: </label>
+    <input [(ngModel)]="selectedPerson.status" placeholder="status"/>
+    <button (click)="postStatus(selectedPerson.userId, selectedPerson.status)">send to server</button>
+
+  </div>
+</div>
