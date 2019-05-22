@@ -1,0 +1,8 @@
+body{
+ /* background: linear-gradient( #8c7c5c , rgba(159, 112, 38, 0.89));*/
+  width: 80%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}

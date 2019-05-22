@@ -1,17 +1,19 @@
 <h2>Users</h2>
+<div id="gridUsers">
+  <ul *ngIf="persons">
+    <li *ngFor="let person of persons" (click)="selectPerson(person)">
+      <span> {{person.firstName}}: </span> <span>{{person.userId}} </span> <span> deze user is {{person.status}}</span>
+    </li>
+  </ul>
 
-<ul *ngIf="persons">
-  <li *ngFor="let person of persons" (click)="selectPerson(person)">
-      <span>{{person.userId}} </span> <span> {{person.firstName}}</span> <span> deze user is {{person.status}}</span>
-  </li>
-</ul>
+  <div *ngIf="selectedPerson" id="selectedPerson">
+    <h3>{{selectedPerson.firstName}} details!</h3>
+    <label>id: </label>
+    <div class="id">{{selectedPerson.userId}}</div>
 
-<div *ngIf="selectedPerson">
-  <h2>{{selectedPerson.firstName}} details!</h2>
-  <div><label>id: </label>{{selectedPerson.userId}}</div>
-  <div>
-    <label>status: </label>
+    <label class="label2">status: </label>
     <input [(ngModel)]="selectedPerson.status" placeholder="status"/>
+
     <button (click)="postStatus(selectedPerson.userId, selectedPerson.status)">send to server</button>
 
   </div>
